@@ -50,8 +50,8 @@ words_per_minute         : 200
 # reCaptcha:
 #   siteKey                :
 #   secret                 :
-# atom_feed:
-#   path                   : # blank (default) uses feed.xml
+atom_feed:
+  path                   : './'
 # search                   : # true, false (default)
 # search_full_content      : # true, false (default)
 # search_provider          : # lunr (default), algolia, google
@@ -96,7 +96,7 @@ analytics:
 author:
   name             : "Seung-taek"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "안녕하세요"
+  bio              : "안녕하세요."
   # location         : "Somewhere"
   email            : "seungtaek95@gmail.com"
   # links:
@@ -280,10 +280,7 @@ defaults:
       comments: # true
       share: false
       related: false
-  # _docs
-  - scope:
-      path: ""
-      type: docs
-    values:
       sidebar:
         nav: "docs"
+
+      
