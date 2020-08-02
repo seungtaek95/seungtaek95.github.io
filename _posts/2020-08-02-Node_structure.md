@@ -33,4 +33,4 @@ Node.js의 구성요소에 대해 하나씩 공부하는 것만으로도 꽤 많
 
 ### References  
 
-https://www.zcfy.cc/original/architecture-of-node-js-internal-codebase-506.html
+<https://www.zcfy.cc/original/architecture-of-node-js-internal-codebase-506.html>
