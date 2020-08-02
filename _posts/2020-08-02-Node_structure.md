@@ -4,7 +4,8 @@ date: 2020-07-27 23:50:28 -0400
 fontsize: 10pt
 # categories: node
 ---
-
+ _이 글은 'Node.js 디자인 패턴' 책을 보며 공부한 내용을 정리한 글입니다._   
+ 
 자바스크립트는 싱글 스레드 언어로 알려져있습니다. 하지만 우리는 Network I/O, File system I/O 등의 작업이 비동기적으로 이루어진다는 것을 알고 있습니다. 그렇다면 Node.js는 어떻게 이런 비동기 작업을 처리하는 것인지 Node.js를 구성하고있는 요소부터 시작해서 하나씩 알아보도록 하겠습니다.  
 
 Node.js의 공식홈페이지에서는 Node.js를 다음과 같이 표현하고 있습니다.
@@ -12,6 +13,8 @@ Node.js의 공식홈페이지에서는 Node.js를 다음과 같이 표현하고 
 > Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.  
 
 Node.js를 구성하는 전체 구조를 잘 표현하는 문장은 아니지만 V8엔진을 이용한 자바스크립트 구동환경이라는 것은 알 수 있습니다. 실제로 Node.js는 브라우저에서만 실행할 수 있던 자바스크립트를 브라우저 바깥에서 실행가능하게 만들어주는 자바스크립트 runtime입니다.  
+
+### Node.js의 구성요소  
 
 Node.js를 구성하는 요소는 크게 **libuv, V8, Bindings, Core Javascript API**라고 할 수 있습니다. 각 요소의 역할은 다음과 같습니다.  
 
@@ -27,3 +30,7 @@ Node.js를 구성하는 요소는 크게 **libuv, V8, Bindings, Core Javascript 
 
 Node.js는 위와같이 이루어진 구성요소 위에 사용자 영역의 모듈과 어플리케이션이 올라와서 실행되는 구조입니다.  
 Node.js의 구성요소에 대해 하나씩 공부하는 것만으로도 꽤 많은 시간이 걸릴 것으로 예상됩니다. 다음 게시글에서는 libuv가 어떻게 사용자의 비동기 요청과 이벤트를 처리하는지 알아보도록 하겠습니다.  
+
+### References  
+
+https://www.zcfy.cc/original/architecture-of-node-js-internal-codebase-506.html
