@@ -43,6 +43,8 @@ on('close', ... ) 유형의 close 이벤트들의 콜백들 실행합니다.
 
 ### References  
 
-<https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c>
-<https://evan-moon.github.io/2019/08/01/nodejs-event-loop-workflow/>
-<https://dev.to/lunaticmonk/understanding-the-node-js-event-loop-phases-and-how-it-executes-the-javascript-code-1j9>
+<https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c>  
+
+<https://evan-moon.github.io/2019/08/01/nodejs-event-loop-workflow/>  
+
+<https://dev.to/lunaticmonk/understanding-the-node-js-event-loop-phases-and-how-it-executes-the-javascript-code-1j9>  
