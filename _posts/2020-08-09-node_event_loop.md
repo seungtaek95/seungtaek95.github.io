@@ -30,7 +30,7 @@ setTimeout()과 setInterval()로 스케줄링된 콜백을 실행합니다. time
 <br>
 
 #### polling  
-I/O이벤트를 가져와서 I/O콜백들을 실행합니다. close 이벤트, setTimeout, setInterval setImmediate로 등록된 콜백을 제외한 모든 콜백은 여기서 실행됩니다. poll단계에 진입했을 때 콜백 **큐가 비어있지 않으면** 큐가 비거나 임계치에 도달할 때까지 등록된 콜백들을 실행합니다. **큐가 비어있다면** setImmediate로 등록된 콜백이 있으면 check단계로 넘어갑니다. setTimeout, setInterval로 등록된 타이머가 있는 경우 타이머의 시간이 만료될때까지 대기하고 만료된 시점에 timers단계로 넘어갑니다. 그렇지 않은 타이머가 만료되거나 새로운 연결이나 요청을 해당 단계에서 기다리게 됩니다.
+I/O이벤트를 가져와서 I/O콜백들을 실행합니다. close 이벤트, setTimeout, setInterval setImmediate로 등록된 콜백을 제외한 모든 콜백은 여기서 실행됩니다. poll단계에 진입했을 때 콜백 **큐가 비어있지 않으면** 큐가 비거나 임계치에 도달할 때까지 등록된 콜백들을 실행합니다. **큐가 비어있다면** setImmediate로 등록된 콜백이 있으면 check단계로 넘어갑니다. setTimeout, setInterval로 등록된 타이머가 있는 경우 타이머의 시간이 만료될때까지 대기하고 만료된 시점에 timers단계로 넘어갑니다. 그렇지 않은 경우 타이머가 만료되거나 새로운 연결이나 요청을 해당 단계에서 기다리게 됩니다.
 <br>
 
 #### check  
