@@ -17,8 +17,6 @@ libuv는 Node.js의 실행 시 기본적으로 4개의 스레드로 이루어진
 
 _이벤트 루프에 대한 자세한 설명은 [Node.js 공식문서](https://nodejs.org/ko/docs/guides/event-loop-timers-and-nexttick/)에서 확인할 수 있습니다._  
 
-<br>
-
 공식문서에서는 이벤트 루프의 단계가 7-8단계가 있다고 합니다. 각각의 단계는 실행할 콜백들의 FIFO Queue이며 이벤트 루프가 해당 단계에 진입했을 때 큐를 모두 소진하거나 콜백 제한 수만큼 콜백을 실행하고 다음 단계로 넘어가게 됩니다. 그리고 더이상 수행할 콜백들이 없는 경우 프로세스가 종료되게 됩니다. 이 포스팅에서는 중요한 이벤트 루프 5가지만 알아보도록 하겠습니다.
 
 #### timers  
@@ -42,7 +40,6 @@ on('close', ... ) 유형의 close 이벤트들의 콜백들 실행합니다.
 <br>
 
 ### References  
-<br>
 
 <https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c>
 <https://evan-moon.github.io/2019/08/01/nodejs-event-loop-workflow/>
