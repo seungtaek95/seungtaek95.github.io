@@ -1,7 +1,7 @@
 ---
 title: "Node.js의 libuv와 event-loop"
 date: 2020-08-09 15:55:40 -0400
-fontsize: 10pt
+fontsize: 8pt
 # categories: node
 ---
 
