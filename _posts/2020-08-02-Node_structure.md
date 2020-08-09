@@ -21,7 +21,7 @@ Node.js를 구성하는 전체 구조를 잘 표현하는 문장은 아니지만
 
 <br>
 
-### Node.js의 구성요소  
+## Node.js의 구성요소  
 
 Node.js를 구성하는 요소는 크게 **libuv, V8, Bindings, Core Javascript API**라고 할 수 있습니다. 각 요소의 역할은 다음과 같습니다.  
 
@@ -40,7 +40,7 @@ Node.js의 구성요소에 대해 하나씩 공부하는 것만으로도 꽤 많
 
 <br>
 
-### References  
+## References  
 
 <br>
 
