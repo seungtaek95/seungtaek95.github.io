@@ -4,8 +4,11 @@ date: 2020-08-16 14:42:00 -0400
 fontsize: 8pt
 # categories: node
 ---
+<br>
 
 어느 어플리케이션이든 코드를 작성할 때 기본적으로 에러가 날 수 있는 로직은 try-catch구문으로 감싸서 에러로 인해 프로세스가 종료되는 것을 방지해야합니다. 오류가 날 수 있는 모든 구문에서 try-catch로 오류를 처리해줄 수도 있지만 express에서는 오류 처리 미들웨어를 정의해주는 것으로 오류를 처리해줄 수도 있습니다.
+
+<br>
 
 ## Error Handling Middleware  
 
@@ -56,6 +59,8 @@ app.use((error, req, res, next) => {
 })
 ```
 
+<br>
+
 ## Asynchronous Error
 
 하지만 다음과 같이 try-catch로 감싸지 않은 비동기 함수 안에서 에러가 발생한다면 express의 비동기 미들웨어는 작동하지 않을것입니다.
@@ -89,7 +94,10 @@ app.get('foo', wrapAsync(async (req, res) => {
 }))
 ```
 
+<br>
+
 ## References  
 
-<http://expressjs.com/ko/guide/error-handling.html#%EC%98%A4%EB%A5%98-%EC%B2%98%EB%A6%AC>
-<http://jeonghwan-kim.github.io/node/2017/08/17/express-error-handling.html>
+<http://expressjs.com/ko/guide/error-handling.html#%EC%98%A4%EB%A5%98-%EC%B2%98%EB%A6%AC>  
+
+<http://jeonghwan-kim.github.io/node/2017/08/17/express-error-handling.html>  
