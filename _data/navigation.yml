@@ -1,9 +1,13 @@
 main:
-  # - title: "Test"
-  #   url: /docs/
+  - title: "Categories"
+    url: /categories
 
-docs:
-  - title: Development
-    children:
-      # - title: "Test"
-      #   url: /test/
+# docs:
+#   - title: Development
+#     children:
+#       - title: "Node"
+#         url: /categories/node
+#       - title: "React"
+#         url: /categories/react
+#       - title: "Web"
+#         url: /categories/web

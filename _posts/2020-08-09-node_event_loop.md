@@ -1,8 +1,8 @@
 ---
 title: "Node.js의 libuv와 event-loop"
 date: 2020-08-09 15:55:40 -0400
-fontsize: 8pt
-# categories: node
+fontsize: 10pt
+categories: node
 ---
 
 싱글스레드만을 사용하는 자바스크립트 실행환경인 Node.js는 어떻게 사용자의 여러가지 비동기 요청들을 처리하는것인지 Node.js를 구성하는 핵심 구성요소 중 하나인 libuv의 event-loop의 작동방식을 통해 알아보도록 하겠습니다.  

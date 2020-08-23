@@ -2,7 +2,7 @@
 title: "Node.js의 구조에 대해서"
 date: 2020-08-02 17:50:28 -0400
 fontsize: 10pt
-# categories: node
+categories: node
 ---
 
 <br>

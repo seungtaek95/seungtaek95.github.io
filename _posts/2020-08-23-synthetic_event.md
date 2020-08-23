@@ -1,8 +1,8 @@
 ---
 title: "[React]Native Event와 Synthetic Event"
 date: 2020-08-23 12:15:00 -0400
-fontsize: 8pt
-# categories: node
+fontsize: 10pt
+categories: react
 ---
 ## 개요  
 
