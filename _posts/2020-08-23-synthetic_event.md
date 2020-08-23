@@ -78,7 +78,7 @@ syntheticEvent는 브라우저의 DOM event와 동일한 인터페이스를 제�
 const myComponent = () => {
   return(
     <div onClick={() => {
-      console.log('onclick div)
+      console.log('onclick div')
       }}
     >
       <button onClick={event => {
