@@ -25,7 +25,7 @@ Node.js를 구성하는 전체 구조를 잘 표현하는 문장은 아니지만
 
 Node.js를 구성하는 요소는 크게 **libuv, V8, Bindings, Core Javascript API**라고 할 수 있습니다. 각 요소의 역할은 다음과 같습니다.  
 
-![Node_Components](../assets/images/Node_Components.png)
+![Node_Components](/assets/images/node_components.png)
 
 **V8** : C++로 작성되고 Chrome브라우저에서 사용되는 오픈소스 javascript engine입니다. javascript코드를 기계어로 컴파일하고 실행하는 역할을 합니다. [V8엔진이 javascript코드를 실행하는 방법](https://medium.com/@pks2974/v8-%EC%97%90%EC%84%9C-javascript-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%8B%A4%ED%96%89%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95-%EC%A0%95%EB%A6%AC%ED%95%B4%EB%B3%B4%EA%B8%B0-25837f61f551)  
 

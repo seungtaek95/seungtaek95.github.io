@@ -15,7 +15,7 @@ libuv는 Node.js의 실행 시 기본적으로 4개의 스레드로 이루어진
 
 ## Event-Loop  
 
-![node_event_loop](../assets/images/node_event_loop.png)
+![node_event_loop](/assets/images/node_event_loop.png)
 
 _이벤트 루프에 대한 자세한 설명은 [Node.js 공식문서](https://nodejs.org/ko/docs/guides/event-loop-timers-and-nexttick/)에서 확인할 수 있습니다._  
 
