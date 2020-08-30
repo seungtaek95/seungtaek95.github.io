@@ -1,5 +1,5 @@
 ---
-title: "[Node.js]express의 오류 처리 미들웨어"
+title: "[Node] express의 오류 처리 미들웨어"
 date: 2020-08-16 14:42:00 -0400
 fontsize: 10pt
 categories: node
