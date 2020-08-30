@@ -8,7 +8,7 @@ categories: react
 
 react를 이용한 웹 페이지 개발 중 상위 컴포넌트의 click이벤트가 있는 상황에서 하위 컴포넌트에 등록된 click 이벤트의 이벤트 버블링(event-bubbling)을 막아야하는 상황이 있었다. 평소처럼 event.stopPropagation() 을 사용해서 이벤트 버블링을 막으려고 했는데 생각했던 대로 작동하지 않고 상위 컴포넌트의 이벤트가 발생하는 것이었다. 이때 문제의 코드는 대략 다음과 같은 상황이었다.
 
-```javascript
+```jsx
 const myComponent = () => {
   const outside = document.getElementById('outside')
   outside.addEventListener('click', () => {
@@ -35,7 +35,7 @@ const myComponent = () => {
 
 우리가 리액트 컴포넌트의 프로퍼티로 정의해주는 이벤트 핸들러(위 button태그의 onClick())가 처리하는 이벤트는 브라우저가 처리하는 일반적인 DOM의 event와는 다르다. 리액트에서는 이것을 SynthethicEvent라고 하며 이 이벤트 래퍼는 모든 브라우저에서 동일한 동작을 하고 DOM event와 같은 인터페이스를 가진다. 위에서 onClick()으로 정의한 이벤트 핸들러들은 이벤트 버블링 단계에서 호출되며 캡처 단계에서 호출하려면 이벤트 핸들러 뒤에 Capture를 붙여야 한다(onClick -> onClickCapture). 위 코드에서 각각의 event객체를 로그 찍어보면 두 가지가 다르다는 것을 알 수 있다.
 
-```javascript
+```jsx
 ...
 
 outside.addEventListener('click', event => {
@@ -47,11 +47,10 @@ outside.addEventListener('click', event => {
 ...
 ```
 
-```javascript
+```jsx
 ...
 
-<button 
-onClick={event => {
+<button onClick={event => {
   console.log(event)
   // SyntheticEvent
   // Class {dispatchConfig: {…}, _targetInst: FiberNode, nativeEvent: MouseEvent, type: "click", target: button, …}
@@ -74,7 +73,7 @@ syntheticEvent는 브라우저의 DOM event와 동일한 인터페이스를 제�
 
 문제는 리액트 어플리케이션에서 NativeEvent와 SyntheticEvent를 혼용해서 썼다는 것이다. 리액트에서 DOM의 native event를 사용할 수는 있지만 리액트에서는 기본적으로 SyntheticEvent만 사용하도록 하자. 위와 같은 상황이 발생할 수 있기 때문이다. 따라서 위 코드를 다음과 같이 고치면 문제는 해결된다.
 
-```javascript
+```jsx
 const myComponent = () => {
   return(
     <div onClick={() => {
