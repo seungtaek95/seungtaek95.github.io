@@ -1,6 +1,10 @@
 main:
-  - title: "Categories"
-    url: /categories
+  - title: "Node"
+    url: /categories/node
+  - title: "React"
+    url: /categories/react
+  - title: "Web"
+    url: /categories/web
 
 # docs:
 #   - title: Development
