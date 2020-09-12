@@ -83,7 +83,7 @@ readable.on('end', () => {
 })
 ~~~
 
-reable stream의 data 이벤트에 listener를 등록함으로서 file read가 시작되고 버퍼에 chunk data가 쌓일 때마다 data이벤트가 호출된다. 그리고 그 때 writable stream은 readable stream을 통해 넘어온 chunk data를 이용해서 파일을 작성한다. 더이상 읽어올 데이터가 없을 때는 end이벤트가 발생하고 이 때 writable stream을 close() 함수를 호출해서 닫아준다.
+reable stream의 data 이벤트에 listener를 등록함으로써 file read가 시작되고 버퍼에 chunk data가 쌓일 때마다 data이벤트가 호출된다. 그리고 그 때 writable stream은 readable stream을 통해 넘어온 chunk data를 이용해서 파일을 작성한다. 더이상 읽어올 데이터가 없을 때는 end이벤트가 발생하고 이 때 writable stream을 close() 함수를 호출해서 닫아준다.
 
 ~~~javascript    
 readable.on('end' () => {
