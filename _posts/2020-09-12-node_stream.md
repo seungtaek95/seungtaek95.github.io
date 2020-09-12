@@ -9,7 +9,7 @@ categories: node
 
 ## stream 이란?
 
-컴퓨터에서 stream이란 입력과 출력을 연결해주는 데이터가 이동하는  통로라고 생각할 수 있다. Node.js도 운영체제의 filesystem을 이용하는 fs라는 모듈이 있기 때문에 호스트 운영체제의 file 입출력 stream을 이용할 수 있다. stream을 이용할 때에는 메모리에 올릴 buffer의 사이즈를 조절해서 어플리케이션이 한번에 많은 메모리를 잡아먹는 것을 방지할 수 있다.  
+컴퓨터에서 stream이란 입력과 출력을 연결해주는 데이터가 이동하는  통로라고 생각할 수 있다. Node.js도 운영체제의 filesystem을 이용하는 fs라는 모듈이 있기 때문에 호스트 운영체제의 file 입출력 stream을 이용할 수 있다. stream을 이용할 때에는 메모리에 올릴 버퍼의 사이즈를 조절해서 어플리케이션이 한번에 많은 메모리를 잡아먹는 것을 방지할 수 있다.  
   
 Node.js의 모듈 중 stream을 이용하는 것은 http의 request/response, fs의 read/write stream, zlib stream 등이 있다.  
 
@@ -63,7 +63,7 @@ fs.readFile('./srcFile', (error , data) => {
 ## stream객체를 활용한 read/write  
 
 [Node.js documentation](https://nodejs.org/api/stream.html)에서 stream모듈의 자세한 사용법을 확인할 수 있다.  
-파일을 읽어올 read stream과 write stream을 생성한다. 이 때 생성된 스트림이 사용할 기본 버퍼의 메모리(highWaterMark)는 64KB이다.
+파일을 읽어올 read stream과 write stream을 생성한다. 이 때 파라미터로 버퍼 사이즈를 지정하는 옵션을 넘겨주지 않으면 생성된 스트림이 사용할 기본 버퍼의 메모리(highWaterMark)는 64KB이다.
 
 ~~~javascript
 const readable = fs.createReadStream('./srcFile');
@@ -83,7 +83,7 @@ readable.on('end', () => {
 })
 ~~~
 
-reable stream의 data 이벤트에 listener를 등록함으로서 file read가 시작되고 buffer에 chunk data가 쌓일 때마다 data이벤트가 호출된다. 그리고 그 때 writable stream은 readable stream을 통해 넘어온 chunk data를 이용해서 파일을 작성한다. 더이상 읽어올 데이터가 없을 때는 end이벤트가 발생하고 이 때 writable stream을 close() 함수를 호출해서 닫아준다.
+reable stream의 data 이벤트에 listener를 등록함으로서 file read가 시작되고 버퍼에 chunk data가 쌓일 때마다 data이벤트가 호출된다. 그리고 그 때 writable stream은 readable stream을 통해 넘어온 chunk data를 이용해서 파일을 작성한다. 더이상 읽어올 데이터가 없을 때는 end이벤트가 발생하고 이 때 writable stream을 close() 함수를 호출해서 닫아준다.
 
 ~~~javascript    
 readable.on('end' () => {
@@ -92,7 +92,7 @@ readable.on('end' () => {
 })
 ~~~
 
-buffer에 지정한 chunk사이즈만큼의 데이터가 올라올 때마다 파일을 작성하고 buffer를 비우기 때문에 메모리 사용량이 파일이 buffer에 통째로 올라오는 것과는 다르게 적은 것을 확인할 수 있다.
+버퍼에 지정한 chunk사이즈만큼의 데이터가 올라올 때마다 파일을 작성하고 버퍼를 비우기 때문에 메모리 사용량이 파일이 버퍼에 통째로 올라오는 것과는 다르게 적은 것을 확인할 수 있다.
 
 ## References
 
