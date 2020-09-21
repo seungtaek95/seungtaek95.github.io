@@ -20,10 +20,10 @@ Node.js의 모듈 중 stream을 이용하는 것은 http의 request/response, fs
 ~~~javascript
 const fs = require('fs')
 
-fs.readFile('./srcFile', (error , data) => {
+fs.readFile('./src.txt', (error , data) => {
   if (error) throw error
 
-  fs.writeFile('./destFile', data, (error) => {
+  fs.writeFile('./dest.txt', data, (error) => {
     if (error) throw error
 
     console.log('file successfully writed');
@@ -45,12 +45,12 @@ function checkMemory() {
 ~~~javascript
 checkMemory() // memory usage : 16 MB
 
-fs.readFile('./srcFile', (error , data) => {
+fs.readFile('./src.txt', (error , data) => {
   if (error) throw error
 
   checkMemory() // memory usage : 517 MB
 
-  fs.writeFile('./destFile', data, (error) => {
+  fs.writeFile('./dest.txt', data, (error) => {
     if (error) throw error
 
     console.log('file successfully writed');
@@ -63,11 +63,13 @@ fs.readFile('./srcFile', (error , data) => {
 ## stream객체를 활용한 read/write  
 
 [Node.js documentation](https://nodejs.org/api/stream.html)에서 stream모듈의 자세한 사용법을 확인할 수 있다.  
-파일을 읽어올 read stream과 write stream을 생성한다. 이 때 파라미터로 버퍼 사이즈를 지정하는 옵션을 넘겨주지 않으면 생성된 스트림이 사용할 기본 버퍼의 메모리(highWaterMark)는 64KB이다.
+파일을 읽어올 readable stream과 writeable stream을 생성한다. 이 때 파라미터로 버퍼 사이즈를 지정하는 옵션을 넘겨주지 않으면 생성된 스트림이 사용할 기본 버퍼의 메모리(highWaterMark)는 64KB이다.
 
 ~~~javascript
-const readable = fs.createReadStream('./srcFile');
-const writable = fs.createWriteStream('./destFile');
+const fs = require('fs')
+
+const readable = fs.createReadStream('./src.txt');
+const writable = fs.createWriteStream('./dest.txt');
 ~~~
 
 stream은 EventEmitter의 메소드를 사용할 수 있기 때문에 다음과 같이 이벤트를 등록해줄 수 있다.  
