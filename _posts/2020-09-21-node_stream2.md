@@ -1,6 +1,6 @@
 ---
-title: "[Node] Stream 모듈"
-date: 2020-09-12 21:43:00 -0400
+title: "[Node] Stream 모듈(2)"
+date: 2020-09-21 21:43:00 -0400
 fontsize: 10pt
 categories: node
 ---
