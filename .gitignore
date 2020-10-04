@@ -3,4 +3,5 @@ _site
 vendor
 .bundle
 foo.*
+bar.*
 test.*
