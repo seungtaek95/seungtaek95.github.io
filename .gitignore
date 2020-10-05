@@ -5,3 +5,4 @@ vendor
 foo.*
 bar.*
 test.*
+index.js
