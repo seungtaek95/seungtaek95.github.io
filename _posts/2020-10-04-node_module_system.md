@@ -104,7 +104,7 @@ console.log(baz);
 > { name: 'Kim' }
 > { name: 'Kim' }
 
-caching된 모듈을 재사용한다는건 싱글톤 객체를 사용하는 것과 같다. 따라서 다음과 같은 결과를 확인할 수 있다.  
+caching된 모듈을 재사용한다는건 싱글톤 객체를 사용하는 것과 같기 때문에 다음과 같은 결과를 확인할 수 있다.  
 
 ~~~javascript
 const bar = require('./bar')
