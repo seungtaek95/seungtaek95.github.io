@@ -1,12 +1,5 @@
-const bar = require('./')
-const baz = require('./')
-console.log(bar.name)
-console.log(baz.name)
+const reg = /x(?=y)/
 
-bar.name = 'Lee'
+const foo = 'xyxaxb';
 
-console.log(bar.name)
-console.log(baz.name)
-
-console.log(__filename);
-console.log(__dirname);
+console.log(foo.match(reg));

@@ -5,6 +5,8 @@ main:
     url: /categories/react
   - title: "Web"
     url: /categories/web
+  - title: "Dev"
+    url: /categories/dev
 
 # docs:
 #   - title: Development
