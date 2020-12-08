@@ -218,14 +218,14 @@ db.person.aggregate([
 
 3.6 버전부터 다음과 같은 형식의 lookup 스테이지도 지원한다.
 
-> {
-> &emsp;$lookup:
-> &emsp;&emsp;{
-> &emsp;&emsp;&emsp;from: \<collection to join>,
-> &emsp;&emsp;&emsp;let: { \<var_1>: \<expression>, …, \<var_n>: <expression> },
-> &emsp;&emsp;&emsp;pipeline: [ \<pipeline to execute on the collection to join> ],
-> &emsp;&emsp;&emsp;as: \<output array field>
-> &emsp;&emsp;}
+> {<br>
+> &emsp;$lookup:<br>
+> &emsp;&emsp;{<br>
+> &emsp;&emsp;&emsp;from: \<collection to join>,<br>
+> &emsp;&emsp;&emsp;let: { \<var_1>: \<expression>, …, \<var_n>: <expression> },<br>
+> &emsp;&emsp;&emsp;pipeline: [ \<pipeline to execute on the collection to join> ],<br>
+> &emsp;&emsp;&emsp;as: \<output array field><br>
+> &emsp;&emsp;}<br>
 > }
 
 
