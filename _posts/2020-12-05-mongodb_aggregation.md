@@ -158,14 +158,14 @@ db.person.aggregate([
 
 ### \$lookup
 
-> {
-> &emsp;$lookup:
-> &emsp;&emsp;{
-> &emsp;&emsp;&emsp;from: \<조인할 컬렉션>,
-> &emsp;&emsp;&emsp;localField: \<현재 컬렉션의 input 도큐먼트 필드>,
-> &emsp;&emsp;&emsp;foreignField: \<from에 명시한 컬렉션의 도큐먼트 필드>,
-> &emsp;&emsp;&emsp;as: \<결과 배열을 지정할 필드>
-> &emsp;&emsp;}
+> {<br>
+> &emsp;$lookup:<br>
+> &emsp;&emsp;{<br>
+> &emsp;&emsp;&emsp;from: \<조인할 컬렉션>,<br>
+> &emsp;&emsp;&emsp;localField: \<현재 컬렉션의 input 도큐먼트 필드>,<br>
+> &emsp;&emsp;&emsp;foreignField: \<from에 명시한 컬렉션의 도큐먼트 필드>,<br>
+> &emsp;&emsp;&emsp;as: \<결과 배열을 지정할 필드><br>
+> &emsp;&emsp;}<br>
 > }
 
 \$lookup 스테이지는 같은 데이터베이스 내의 다른 컬렉션과 "Left Outer Join"을 수행한다. 흔히 Join 연산을 할 수 없다는 몽고디비에서 Join연산을 수행할 수 있는 aggregation 스테이지이다. localField로 지정한 필드와 foreignField로 지정한 필드 중 일치하는 외부 도큐먼트를 as에 지정한 이름의 필드에 배열로 담아서 결과값을 반환한다.
