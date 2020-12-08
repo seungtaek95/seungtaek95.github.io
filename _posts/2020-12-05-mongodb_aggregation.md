@@ -47,13 +47,13 @@ db.person.aggregate([
 
 ### \$group
 
-> {
-> &emsp;$group:
-> &emsp;&emsp;{
-> &emsp;&emsp;&emsp;_id: \<expression>, // null이나 상수값 가능
-> &emsp;&emsp;&emsp;\<field1>: { \<accumulator1> : \<expression1> },
-> &emsp;&emsp;&emsp;...
-> &emsp;&emsp;}
+> {<br>
+> &emsp;$group:<br>
+> &emsp;&emsp;{<br>
+> &emsp;&emsp;&emsp;_id: \<expression>, // null이나 상수값 가능<br>
+> &emsp;&emsp;&emsp;\<field1>: { \<accumulator1> : \<expression1> },<br>
+> &emsp;&emsp;&emsp;...<br>
+> &emsp;&emsp;}<br>
 > }
 
 \$group 스테이지는 _id를 주어진 expression을 통해 그룹화된 도큐먼트나, 주어진 accumulator의 연산 결과를 필드로 갖는 도큐먼트를 결과값으로 받는다.
