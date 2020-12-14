@@ -1,15 +1,12 @@
-function Foo() {
-  this.name = 'Kim'
+const fs = require('fs')
+
+function main(exception=[]) {
+  fs.readdir('/Users/seungtaek/Documents/Github_Page/seungtaek95.github.io/_sass',
+  { withFileTypes: true },
+  (err, files) => {
+    console.log(exception);
+    files.forEach(file => console.log(exception.includes(file.name)))
+  })
 }
 
-const foo = new Foo()
-console.log(foo);
-console.log(foo.age);
-console.log(Foo.prototype);
-
-console.log("");
-
-Foo.prototype.age = 20
-console.log(foo);
-console.log(foo.age);
-console.log(Foo.prototype);
+main(['480p', '720p'])

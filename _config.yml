@@ -96,7 +96,7 @@ analytics:
 author:
   name             : "Seung-taek"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "안녕하세요."
+  bio              : "안녕하세요. 더 나은 개발자가 되기 위해 공부한 것을 기록하고 있습니다."
   # location         : "Somewhere"
   email            : "seungtaek95@gmail.com"
   # links:

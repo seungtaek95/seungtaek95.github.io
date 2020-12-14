@@ -48,6 +48,12 @@ $ docker build -t hello .
 $ docker tag hello localhost:5000/hello
 ~~~
 
+또는 처음 이미지를 빌드할 때부터 이름을 이렇게 지어줄 수도 있다.
+
+~~~sh
+$ docker build -t localhost:5000/hello .
+~~~
+
 이제 두 개의 이미지가 로컬 저장소에 생긴 것을 확인할 수 있다.
 
 ~~~
