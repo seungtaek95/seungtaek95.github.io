@@ -7,7 +7,7 @@ categories: dev
 
 <br>
 
-javascript로 어플리케이션을 만들 때 사용할 수 있는 테스트 툴이 여러개가 있다. 대표적으로 [mocha](https://mochajs.org/), [jest](https://jestjs.io/)가 있다. 필자는 mocha를 사용해 본 적은 없고 첫 테스트 프레임워크로 jest를 사용해봐서 jest를 계속 사용하고 있다. Node.js로 웹서버를 만들 때는 jest를 이용한 단위테스트 이외에 현재 작업중인 웹 API가 올바른 응답을 보내는지에 대한 테스트도 필요하다. 이때 [supertest](https://www.npmjs.com/package/supertest)를 사용하면 편하게 API를 테스트할 수 있다. supertest는 [superagent](https://visionmedia.github.io/superagent/)를 사용한다. supertest의 더 자세한 사용법은 superagent를 참고하면 좋다. jest에 대한 설명은 넘어가고 supertest를 사용하는 법을 중심으로 글을 작성한다.
+Node.js로 웹서버를 만들 때는 jest를 이용한 단위테스트 이외에 현재 작업중인 웹 API가 올바른 응답을 보내는지에 대한 테스트도 필요하다. 이때 [supertest](https://www.npmjs.com/package/supertest)를 사용하면 편하게 API를 테스트할 수 있다. supertest는 [superagent](https://visionmedia.github.io/superagent/)를 사용한다. supertest의 더 자세한 사용법은 superagent를 참고하면 좋다. jest에 대한 설명은 넘어가고 supertest를 사용하는 법을 중심으로 글을 작성한다.
 
 jest와 supertest를 설치해준다.
 
