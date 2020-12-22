@@ -142,8 +142,8 @@ callEventEmitter.removeListener('call', onCall)
 console.log(callEventEmitter.listeners('call'));
 ~~~
 
-> [ [Function: onCall] ]
-> []
+> [ [Function: onCall] ]  
+> []  
 
 <br>
 
@@ -161,8 +161,8 @@ callEventEmitter.removeAllListeners('call')
 console.log(callEventEmitter.listeners('call'));
 ~~~
 
-> [ [Function: onCall] ]
-> []
+> [ [Function: onCall] ]  
+> []  
 
 <br>
 
