@@ -32,29 +32,76 @@ Proxy. 대리, 대리인이라는 뜻을 가진 영어단어이다. 컴퓨터 �
 
 ## nginx를 이용한 리버스 프록시 구현
 
+[nginx에 대한 소개와 사용법](https://seungtaek95.github.io/web/nginx/)  
+
 Ubuntu 서버 환경에서 실습을 진행한다. 구현하고자 하는 nginx는 다음과 같은 역할을 한다.
 1. 80번 포트를 통해 / 경로로 요청이 들어오면 index.html이라는 정적 파일을 제공한다.
 1. /api 로 시작하는 요청이 들어오면 3030번 포트에서 요청을 기다리는 api 서버로 요청을 전달한다.
 1. 이 때 3030번 포트는 외부로 노출을 시키지 않기 때문에 80번 포트로 두 요청을 모두 처리한다.
 
-nginx를 설치하고 `/etc/nginx/conf.d` 경로 안에 default.conf 파일을 생성하고 다음과 같이 작성해준다.  
+nginx를 설치하고 `/etc/nginx/conf.d` 경로 안에 default.conf 파일을 생성한 후 다음과 같이 작성해준다.  
 
 ~~~conf
 server {
-  listen 80;
-  location / {
+  listen 80;                           // 1
+  location / {                         // 2
     root   /usr/share/nginx/html;
     index  index.html index.htm;
     try_files $uri $uri/ /index.html;
   }
 
-  location /api {
+  location /api {                      // 3
     proxy_pass http://127.0.0.1:3030;
   }
 }
 ~~~
 
-`/usr/share/nginx/html` 경로에는 간단한 index.html 파일을 넣어준다. `proxy_pass`로 '/api'로 시작하는 요청을 로컬호스트의 3030번 포트로 우회시켜주었다. 이 서버는 80번 포트만 외부로 노출시켰지만 nginx가 제공하는 정적파일과 3030번 포트에서 작동중인 api서버도 사용할 수 있게 되었다.
+1. 80번 포트를 nginx 서버로 설정한다.
+1. '/' 경로로 요청이 들어오면 `/usr/share/nginx/html` 경로에 있는 index.html 파일을 제공한다.
+1. '/api'로 시작하는 요청은 `proxy_pass`를 이용해 로컬호스트의 3030번 포트로 우회시켜 준다.
+
+`/usr/share/nginx/html`에 있는 index.html은 다음과 같은 간단한 파일이다.  
+  
+index.html
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello port 80</title>
+</head>
+<body>
+    <p>This is served from port 80</p>
+</body>
+</html>
+~~~
+
+3030번 포트에서 돌아가는 api 서버는 다음과 같이 간단하게 하나의 요청을 받아주는 express 서버이다.  
+  
+app.js
+~~~javascript
+const express = require('express');
+
+const PORT = 3030;
+const app = express();
+
+app.get('/api/hello', (req, res) => {
+  res.end(`this message is from port ${PORT}`)
+});
+
+app.listen(PORT, () => {
+  console.log(`server is listening on port ${PORT}`);
+});
+~~~
+
+nginx를 실행시키고 http://localhost 로 요청을 보내면 index.html파일을 확인할 수 있다.  
+
+![port 80](https://user-images.githubusercontent.com/50684454/103285982-d3f00c80-4a22-11eb-8699-963f9335e5a9.png)
+
+http://localhost/api/hello 로 요청을 보내면 3030번 포트에서 실행중인 api서버로부터 메세지를 받을 수 있다.
+
+![port 3030](https://user-images.githubusercontent.com/50684454/103285990-d6eafd00-4a22-11eb-818a-a4f8102ebb3c.png)
+
+이 서버는 80번 포트만 외부로 노출시켰지만 nginx가 제공하는 정적파일과 3030번 포트에서 작동중인 api서버도 사용할 수 있게 되었다.
 
 <br>
 
