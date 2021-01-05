@@ -68,66 +68,7 @@ worlflow를 적용하기 위한 yml파일을 작성해야하는데, 다음과 �
 <br>
 
 ## Workflow 설정
-
-생성된 worlflow yml파일을 살펴보자.
-
-~~~yml
-name: Node.js CI
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x, 14.x]
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
-~~~
-
-`name`  
-workflow의 이름  
-
-`on`  
-event를 설정하는 부분. git 이벤트를 명시하고 해당 이벤트를 적용할 브랜치를 명시해 준다. __on.schedule__ 을 통해 특정 시간에 실행될 action을 명시할 수도 있다.  
-
-`jobs`  
-workflow는 하나 이상의 job으로 구성된다. 여기서는 build라는 job이 하나 있다. 모든 job들은 parallel하게 실행되고, __jobs.<job_id>.needs__
-를 통해 sequential하게 실행되도록 설정할 수 있다.  
-
-`jobs.<job_id>.rus-on`: job을 실행할 머신환경을 명시한다. 운영체제의 특정 버전을 명시해 준다.  
-
-`jobs.<job_id>.strategy.matrix`: job을 실행할 서로 다른 환경을 정의할 수 있다. node-version 이라는 키에 3개의 버전을 갖고 있는 배열을 명시해줬다.  
-
-`steps`  
-순차적으로 실행할 task들의 집합이다.  
-
-`steps.name`: Github에 보여질 이름이다.  
-
-`steps.uses`: job의 일부분으로 실행할 action을 명시해 준다. 기존에 만들어진 action이나 다른 사람이 만들어놓은 action을 사용할 수 있다. [actions/checkout](https://github.com/actions/checkout) 은 소스코드를 $GITHUB_WORKDIR 로 가져와서 workflow가 소스코드에 접근할 수 있게 해준다. node실행 환경을 위해서 [actions/setup-node](https://github.com/actions/setup-node) 도 반드시 사용해야 한다.  
-
-`steps.with`: step에서 사용될 key/value로 이루어진 환경변수이다.  
-
-`steps.run`: 실행할 커맨드를 명시해준다.  
-
-<br>
-
-다음과 같이 yml파일을 필요한 부분만 남기고 간소화 시켜주었다. job의 이름은 test로 바꿔주었고 node 14버전에서만 테스트가 돌아가게 해주었다.  
+다음과 같이 yml파일을 필요한 부분만 남기고 간소화 시켜주자.  
 
 ~~~yml
 name: Node.js CI
@@ -152,9 +93,34 @@ jobs:
     - run: npm test
 ~~~
 
-yml파일 수정을 'new yml'이라는 이름으로 커밋하고 main브랜치에 푸시하고 Github repository의 Action탭을 눌러보면 자동으로 action이 실행되고 있는 것을 확인할 수 있다.  
+`name`  
+workflow의 이름  
 
-커밋의 이름으로 workflow가 실행되고 있다.  
+`on`  
+event를 설정하는 부분. git 이벤트를 명시하고 해당 이벤트를 적용할 브랜치를 명시해 준다. __on.schedule__ 을 통해 특정 시간에 실행될 action을 명시할 수도 있다.  
+
+`jobs`  
+workflow는 하나 이상의 job으로 구성된다. 여기서는 build라는 job이 하나 있다. 모든 job들은 parallel하게 실행되고, __jobs.<job_id>.needs__
+를 통해 sequential하게 실행되도록 설정할 수 있다.  
+
+`jobs.<job_id>.rus-on`: job을 실행할 머신환경을 명시한다. 운영체제의 특정 버전을 명시해 준다.  
+
+`steps`  
+순차적으로 실행할 task들의 집합이다.  
+
+`steps.name`: Github에 보여질 이름이다.  
+
+`steps.uses`: job의 일부분으로 실행할 action을 명시해 준다. 기존에 만들어진 action이나 다른 사람이 만들어놓은 action을 사용할 수 있다. [actions/checkout](https://github.com/actions/checkout) 은 소스코드를 $GITHUB_WORKDIR 로 가져와서 workflow가 소스코드에 접근할 수 있게 해준다. node실행 환경을 위해서 [actions/setup-node](https://github.com/actions/setup-node) 도 반드시 사용해야 한다.  
+
+`steps.with`: step에서 사용될 key/value로 이루어진 환경변수이다.  
+
+`steps.run`: 실행할 커맨드를 명시해준다.  
+
+<br>
+
+job의 이름은 test로 바꿔주었고, main 브랜치에 PR이나 push가 있을때 workflow가 작동되게 설정해주었다. 테스트는 node 14버전에서 돌아가게 해주었다.  
+
+yml파일 수정을 'new yml'이라는 이름으로 커밋하고 main브랜치에 푸시하고 Github repository의 Action탭을 눌러보면 자동으로 workflow가 실행되고 있는 것을 확인할 수 있다.  
 
 ![test1](https://user-images.githubusercontent.com/50684454/103474247-5262fa80-4de5-11eb-810a-73367d1acefb.png)
 
