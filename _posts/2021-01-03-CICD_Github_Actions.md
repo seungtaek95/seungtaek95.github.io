@@ -1,5 +1,5 @@
 ---
-title: "CI/CD를 해보자 - 1. Github Actions"
+title: "CI/CD를 해보자 - Github Actions을 통한 코드 통합"
 date: 2021-01-03 21:34:00 -0400
 fontsize: 10pt
 categories: dev
