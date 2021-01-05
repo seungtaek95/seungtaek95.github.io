@@ -144,4 +144,3 @@ job이 성공적으로 통과되었다.
 
 <https://docs.github.com/en/free-pro-team@latest/actions>
 <https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions>
-<https://medium.com/@trustyoo86/ci-%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9C%84%ED%95%9C-npm-ci-npm-ci-for-continous-integration-850fc48dd4cc>
