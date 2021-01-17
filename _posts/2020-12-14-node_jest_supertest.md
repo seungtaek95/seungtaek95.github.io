@@ -17,7 +17,7 @@ $ npm install -D jest supertest
 
 웹 프레임워크로는 express를 쓴다고 가정하고 http 서버를 생성하고 export해주는 기초 코드를 작성한다. 테스트 할 웹 서버는 루트 경로로 GET 요청이 왔을 때 json형식으로 { "message": "Hello world!" } 라는 응답을 보내주는 기능을 한다.  
 
-app.js
+**app.js**
 ~~~javascript
 const express = require('express');
 const app = express();
@@ -31,7 +31,7 @@ module.exports = app;
 
 위에서 작성한 어플리케이션을 테스트할 테스트 파일을 작성한다.  
 
-app.test.js
+**app.test.js**
 ~~~javascript
 const request = require('supertest')
 const app = require('./app')
@@ -78,7 +78,7 @@ describe('GET / ', () => {
 
 POST 요청을 테스트해보기 위해 json 형식의 요청 바디에서 숫자 하나를 요청으로 받으면 그 숫자에 1을 더해서 응답으로 주는 웹 어플리케이션을 작성해보자.  
 
-app.js
+**app.js**
 ~~~javascript
 app.use(express.json())
 
@@ -90,7 +90,7 @@ app.post('/add', (req, res) => {
 
 어플리케이션을 테스트해보자.  
 
-app.test.js
+**app.test.js**
 ~~~javascript
 describe('POST /add ', () => {
   test('response number 5', (done) => {
@@ -112,7 +112,7 @@ cookie를 통한 인증 서비스를 제공하는 웹 서버를 테스트할 경
 <br>
 사용자가 로그인을 하면 그 사용자의 로그인 인증정보를 auth라는 값으로 쿠키에 설정해주는 웹 서버가 있다면 다음과 같은 테스트 코드를 작성할 수 있다.
 
-app.test.js
+**app.test.js**
 ~~~javascript
 const agent = request(app)
 

@@ -41,6 +41,7 @@ Ubuntu 서버 환경에서 실습을 진행한다. 구현하고자 하는 nginx�
 
 nginx를 설치하고 `/etc/nginx/conf.d` 경로 안에 default.conf 파일을 생성한 후 다음과 같이 작성해준다.  
 
+**/etc/nginx/conf.d/default.conf**
 ~~~conf
 server {
   listen 80;                           // 1
@@ -62,7 +63,7 @@ server {
 
 `/usr/share/nginx/html`에 있는 index.html은 다음과 같은 간단한 파일이다.  
   
-index.html
+**/usr/share/nginx/html/index.html**
 ~~~html
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +78,7 @@ index.html
 
 3030번 포트에서 돌아가는 api 서버는 다음과 같이 간단하게 하나의 요청을 받아주는 express 서버이다.  
   
-app.js
+**app.js**
 ~~~javascript
 const express = require('express');
 
