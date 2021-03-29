@@ -1,5 +1,5 @@
 ---
-title: "node의 EventEmitter 기초"
+title: "[Node] EventEmitter 기초"
 date: 2020-12-20 21:34:00 -0400
 fontsize: 10pt
 categories: node
@@ -128,7 +128,7 @@ _node는 이벤트 리스너를 등록하는 `addListener()`와 `prependListener
 
 ## 리스너 제거하기
 
-`removeListener()` 메소드를 통해 인스턴스에 등록된 이벤트 리스터를 제거할 수 있다. 매개변수로 이벤트의 이름과 제거할 리스너의 콜백을 넘겨주어야 한다.
+`removeListener()` 메소드를 통해 인스턴스에 등록된 이벤트 리스터를 제거할 수 있다. 매개변수로 이벤트의 이름과 제거할 리스너함수를 넘겨주어야 한다.
 
 ~~~javascript
 function onCall() {

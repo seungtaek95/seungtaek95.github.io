@@ -17,7 +17,7 @@ MongoDB는 Aggregation 연산을 통해서 데이터에 여러가지 연산을 �
 
 > { $addField: { \<newField>: \<expression>, ... } }
 
-\$addField 스테이지는 도큐먼트에 새로운 필드에 값을 추가한다. 같은 기능을 하는 \$set의 alias이기 때문에 두 연산은 같은 결과를 만든다. 이미 존재하는 필드에 대해서는 새로운 값으로 overwrite를 하게 된다.  
+도큐먼트에 새로운 필드에 값을 추가한다. 같은 기능을 하는 \$set의 alias이기 때문에 두 연산은 같은 결과를 만든다. 이미 존재하는 필드에 대해서는 새로운 값으로 overwrite를 하게 된다.  
 
 ~~~javascript
 db.person.insertOne({
@@ -56,7 +56,7 @@ db.person.aggregate([
 > &emsp;&emsp;}<br>
 > }
 
-\$group 스테이지는 _id를 주어진 expression을 통해 그룹화된 도큐먼트나, 주어진 accumulator의 연산 결과를 필드로 갖는 도큐먼트를 결과값으로 받는다.
+_id를 주어진 expression을 통해 그룹화된 도큐먼트로 하고, 주어진 accumulator의 연산 결과를 필드로 갖는 도큐먼트를 결과값으로 받는다.
 
 ~~~javascript
 db.person.insertMany([
@@ -75,7 +75,7 @@ db.person.aggregate([
 { "_id": "Lee" }
 ~~~
 
-위에서 _id를 name으로 그룹화하였는데 "\$name"이 [expression](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/#expressions)으로, \$(달러표시)가 붙으면 도큐먼트의 필드를 표현할 수 있다. 위 데이터들에 대해서 ["\$sum"](https://docs.mongodb.com/manual/reference/operator/aggregation/sum/#grp._S_sum) accumulator 연산자를 사용하여 다음과 같은 결과를 만들 수도 있다.
+위에서 _id를 name으로 그룹화하였는데 "\$name"이 [expression](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/#expressions)으로, \$<field>는 현재 도큐먼트의 필드값을 의미한다. 위 데이터들에 대해서 "[\$sum]"(https://docs.mongodb.com/manual/reference/operator/aggregation/sum/#grp._S_sum) accumulator 연산자를 사용하여 다음과 같은 결과를 만들 수도 있다.
 
 ~~~javascript
 db.person.aggregate([
@@ -96,7 +96,7 @@ db.person.aggregate([
 
 > { $project: { <specification(s)> } }
 
-\$project 스테이지는 도큐먼트에서 명시한 필드만 결과값으로 받을 수 있게 해준다. 필드의 값으로 0을 주면 해당 필드는 제외, 1을 주면 해당 필드를 결과값에 포함하겠다는 의미이다.
+도큐먼트에서 명시한 필드만 결과값으로 받을 수 있게 해준다. 필드의 값으로 0을 주면 해당 필드는 제외, 1을 주면 해당 필드를 결과값에 포함하겠다는 의미이다.
 
 ~~~javascript
 db.person.insertOne({
@@ -136,7 +136,7 @@ db.person.aggregate([
 
 > { $count: \<string> }
 
-\$count 스테이지는 해당하는 도큐먼트들의 수를 누적해서 더한 값을 지정한 문자열을 필드로 갖는 결과값으로 받게 해준다. 위에서 설명한 \$group과 \$project 스테이지를 합친 결과와 같다고 할 수 있다.
+해당하는 도큐먼트들의 수를 누적해서 더한 값을 지정한 문자열을 필드로 갖는 결과값으로 받게 해준다. 위에서 설명한 \$group과 \$project 스테이지를 합친 결과와 같다고 할 수 있다.
 
 ~~~javascript
 db.person.insertMany([
@@ -168,7 +168,7 @@ db.person.aggregate([
 > &emsp;&emsp;}<br>
 > }
 
-\$lookup 스테이지는 같은 데이터베이스 내의 다른 컬렉션과 "Left Outer Join"을 수행한다. 흔히 Join 연산을 할 수 없다는 몽고디비에서 Join연산을 수행할 수 있는 aggregation 스테이지이다. localField로 지정한 필드와 foreignField로 지정한 필드 중 일치하는 외부 도큐먼트를 as에 지정한 이름의 필드에 배열로 담아서 결과값을 반환한다.
+같은 데이터베이스 내의 다른 컬렉션과 "Left Outer Join"을 수행한다. 흔히 Join 연산을 할 수 없다는 몽고디비에서 Join연산을 수행할 수 있는 aggregation 스테이지이다. localField로 지정한 필드와 foreignField로 지정한 필드 중 일치하는 외부 도큐먼트를 as에 지정한 이름의 필드에 배열로 담아서 결과값을 반환한다.
 
 ~~~javascript
 db.person.insertMany([

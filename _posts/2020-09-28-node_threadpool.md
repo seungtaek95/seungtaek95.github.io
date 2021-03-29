@@ -86,6 +86,7 @@ process.env.UV_THREADPOOL_SIZE = 6
 ![4threads](https://user-images.githubusercontent.com/50684454/94440287-79a19e80-01dc-11eb-8d5c-43c18e6310e0.png)
 
 6개의 작업이 들어왔을 때 4개의 쓰레드가 4개의 작업을 끝낼 때까지 2개의 작업은 대기한다. 4개의 CPU코어가 있기 때문에 4개의 쓰레드 작업은 동시에 처리될 수 있다. 그 후 먼저 작업을 끝낸 쓰레드가 남은 작업을 처리하게 된다.  
+   
 6개의 쓰레드로 작업을 처리하는 과정은 다음과 같다.
 
 ![6threads](https://user-images.githubusercontent.com/50684454/94440294-7c9c8f00-01dc-11eb-983e-f54d317e171d.png)

@@ -1,5 +1,5 @@
 ---
-title: "supertest를 이용한 웹 API 테스트 (with Jest)"
+title: "[Node] supertest를 이용한 웹 API 테스트 (with Jest)"
 date: 2020-12-14 21:34:00 -0400
 fontsize: 10pt
 categories: node
