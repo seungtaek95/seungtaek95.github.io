@@ -29,14 +29,11 @@ foo() // undefined
 위와 같은 경우 this는 전역객체에 바인딩되고 전역객체에는 `a`라는 프로퍼티가 없기 때문에 undefined가 출력된다. 전역객체에 `a`라는 프로퍼티가 있는 경우 해당 `a`프로퍼티의 값을 출력하게 된다.  
 
 ~~~javascript
-window.a = 20 // 또는 global.a = 20
-
 function foo() {
-  const a = 10
-  console.log(this.a);
+  console.log(this === window);
 }
 
-foo() // 20
+foo() // true
 ~~~
 
 하지만 엄격모드에서는 `기본 바인딩` 대상에서 전역객체는 제외되고, 전역객체를 참조해야할 this가 있다면 그 값은 undefined가 된다.  
@@ -46,7 +43,6 @@ foo() // 20
 window.a = 20
 
 function foo() {
-  const a = 10
   console.log(this.a);
 }
 
@@ -55,7 +51,7 @@ foo() // TypeError: Cannot read property 'a' of undefined
 
 ## 암시적 바인딩 (Implicit Binding)  
 
-`암시적 바인딩`이란, 함수 호출시에 콘택스트 객체가 있는지 확인하는 것이다. 이 때 this는 해당 함수를 호출한 객체, 즉 콘택스트 객체가 된다.  
+`암시적 바인딩`이란, 함수가 객체의 메서드로서 호출되는 것이다. 이 때 this는 해당 함수를 호출한 객체, 즉 콘택스트 객체가 된다.  
 
 ~~~javascript
 function foo() {
@@ -65,6 +61,17 @@ function foo() {
 const bar = {
   a: 20,
   foo: foo
+}
+
+bar.foo() // 20
+~~~
+
+~~~javascript
+const bar = {
+  a: 20,
+  foo: function () {
+    console.log(this.a);
+  }
 }
 
 bar.foo() // 20
@@ -87,12 +94,12 @@ bar.foo() //20
 setTimeout(bar.foo, 1) // undefined
 ~~~
 
-위와 같은 결과가 나오는 이유는 결국 `setTimeout` 함수 안에서 실행되는 함수는 `bar` 객체의 `foo` 함수가 아니라, 그 레퍼런스이기 때문에 this는 `기본 바인딩`에 의해 전역 객체에 바인딩 되기 때문이다.
+위와 같은 결과가 나오는 이유는 결국 `setTimeout` 함수 안에 전달한 콜백은 foo의 또다른 레퍼런스이기 때문이다. 따라서 콜백은 `bar` 객체의 메서드로서 실행되는 것이 아니기 때문에 콘택스트 객체가 없다. 이때 this는 `기본 바인딩`에 의해 전역 객체에 바인딩 된다.
 
 ~~~javascript
 function setTimeout(cb, delay) {
   // delay 만큼 기다린다
-  cb() // 기본 바인딩
+  cb() // 기본 바인딩, bar.foo()가 아닌 foo()와 같다
 }
 ~~~
 
