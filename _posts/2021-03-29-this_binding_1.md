@@ -105,4 +105,4 @@ function setTimeout(cb, delay) {
 
 ## References  
 
-도서: You Dont't Know JS(this와 객체 프로토타입, 비동기와 성능)  
+도서: You Dont't Know JS (this와 객체 프로토타입, 비동기와 성능)  
