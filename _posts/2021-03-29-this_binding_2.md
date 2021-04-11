@@ -1,6 +1,6 @@
 ---
 title: "[JS] 알쏭달쏭 this 바인딩 (2)"
-date: 2021-04-03 21:34:00 -0400
+date: 2021-04-11 21:34:00 -0400
 fontsize: 10pt
 categories: dev
 ---
