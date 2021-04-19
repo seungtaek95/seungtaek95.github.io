@@ -1,0 +1,4 @@
+const city = [
+  "Seoul",
+  "Busan",
+]
