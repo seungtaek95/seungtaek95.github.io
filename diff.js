@@ -1,4 +1,3 @@
 const city = [
   "Seoul",
-  "Busan",
 ]
