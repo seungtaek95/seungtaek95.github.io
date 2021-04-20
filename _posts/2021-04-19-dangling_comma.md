@@ -34,18 +34,18 @@ git과 같은 버전관리 시스템을 사용할 때, vs code의 extension이�
 		img { display: block; margin: 0px auto; }
 </style>
 
-<img src=https://user-images.githubusercontent.com/50684454/115234147-ad7dea80-a153-11eb-893d-b3318d844ac6.png width="300em" alt="plus-no-comma"/>
+<img src="https://user-images.githubusercontent.com/50684454/115234147-ad7dea80-a153-11eb-893d-b3318d844ac6.png" width="400em" alt="plus-no-comma"/>
 <p style="text-align: center;">항목 추가</p>
 
-<img src=https://user-images.githubusercontent.com/50684454/115234503-0fd6eb00-a154-11eb-9562-c4be88e24586.png width="300em" alt="plus-comma">
+<img src="https://user-images.githubusercontent.com/50684454/115234503-0fd6eb00-a154-11eb-9562-c4be88e24586.png" width="400em" alt="plus-comma">
 <p style="text-align: center;">항목 추가 - trailing-commas</p>
 
 배열의 항목이 제거되는 경우도 배열에 항목이 추가되는 경우와 같다.
 
-<img src=https://user-images.githubusercontent.com/50684454/115234285-d0a89a00-a153-11eb-9d3f-c9bf157a3985.png width="300em" alt="minus-no-comma">
+<img src="https://user-images.githubusercontent.com/50684454/115234285-d0a89a00-a153-11eb-9d3f-c9bf157a3985.png" width="400em" alt="minus-no-comma">
 <p style="text-align: center;">항목 제거</p>
 
-<img src=https://user-images.githubusercontent.com/50684454/115234531-18c7bc80-a154-11eb-935f-a232579e5dcf.png width="300em" alt="minus-comma">
+<img src="https://user-images.githubusercontent.com/50684454/115234531-18c7bc80-a154-11eb-935f-a232579e5dcf.png" width="400em" alt="minus-comma">
 <p style="text-align: center;">항목 제거 - trailing-commas</p>
 
 추가로, 코드를 수정하는 입장에서도 trailing-commas가 없을때는 한 줄을 추가할 때, 이전 줄의 마지막에 콤마를 붙이고, 한 줄을 추가하는 것보다는 단순히 원하는 줄만 추가하는것이 더 편하다. 제거할 때는 원하는 줄만 제거하면 되고, 위에 줄까지 올라가서 콤마를 제거할 필요가 없다.  
