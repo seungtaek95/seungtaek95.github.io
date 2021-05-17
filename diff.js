@@ -1,3 +1,0 @@
-const city = [
-  "Seoul",
-]
